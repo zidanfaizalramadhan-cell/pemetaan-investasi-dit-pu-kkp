@@ -1312,22 +1312,19 @@ body.investor-access-mode .investor-pitch {
 }
 
 /* =====================================================
-   MOBILE RESPONSIVE FINAL
-   Clean mobile layout for phone screen
+   MOBILE RESPONSIVE - MAP FIRST + BOTTOM SHEET
 ===================================================== */
 
 @media screen and (max-width: 900px) {
   html,
   body {
     width: 100% !important;
-    min-height: 100% !important;
-    height: auto !important;
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
+    height: 100dvh !important;
+    overflow: hidden !important;
   }
 
   body {
-    padding: 14px 0 40px 0 !important;
+    padding: 0 !important;
   }
 
   #map,
@@ -1335,7 +1332,7 @@ body.investor-access-mode .investor-pitch {
     position: fixed !important;
     inset: 0 !important;
     width: 100vw !important;
-    height: 100vh !important;
+    height: 100dvh !important;
     z-index: 1 !important;
   }
 
@@ -1343,196 +1340,211 @@ body.investor-access-mode .investor-pitch {
     position: fixed !important;
     inset: 0 !important;
     width: 100vw !important;
-    height: 100vh !important;
+    height: 100dvh !important;
     z-index: 2 !important;
   }
 
-  /* HEADER */
+  /* NAVBAR MOBILE */
   .navbar {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    width: calc(100vw - 28px) !important;
+    position: fixed !important;
+    top: 12px !important;
+    left: 12px !important;
+    right: 12px !important;
+    width: auto !important;
     height: auto !important;
-    margin: 0 auto 18px auto !important;
-    padding: 18px !important;
+    margin: 0 !important;
+    padding: 14px !important;
     display: flex !important;
     flex-direction: column !important;
-    gap: 16px !important;
-    border-radius: 28px !important;
-    z-index: 3000 !important;
+    gap: 12px !important;
+    border-radius: 24px !important;
+    z-index: 4000 !important;
   }
 
   .nav-left {
-    width: 100% !important;
     display: flex !important;
     align-items: center !important;
-    gap: 14px !important;
+    gap: 12px !important;
   }
 
   .logo-circle {
-    width: 56px !important;
-    height: 56px !important;
+    width: 46px !important;
+    height: 46px !important;
     flex-shrink: 0 !important;
   }
 
   .nav-left h2 {
-    font-size: 19px !important;
+    font-size: 16px !important;
     line-height: 1.2 !important;
   }
 
   .nav-left span {
-    font-size: 12px !important;
-    line-height: 1.3 !important;
+    font-size: 11px !important;
   }
 
   .nav-right {
     width: 100% !important;
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    gap: 10px !important;
+    gap: 8px !important;
   }
 
   .nav-btn {
     width: 100% !important;
-    min-height: 52px !important;
-    padding: 12px 8px !important;
-    font-size: 14px !important;
-    border-radius: 18px !important;
+    min-height: 44px !important;
+    padding: 10px 8px !important;
+    font-size: 12px !important;
+    border-radius: 16px !important;
     white-space: normal !important;
   }
 
-  /* LEFT PANEL */
-  .left-panel {
-    position: relative !important;
+  /* BOTTOM SHEET PANEL */
+  .left-panel,
+  .right-panel {
+    position: fixed !important;
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 12px !important;
     top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    width: calc(100vw - 28px) !important;
-    max-height: none !important;
-    overflow: visible !important;
-    margin: 0 auto 18px auto !important;
-    padding: 20px !important;
-    border-radius: 28px !important;
-    z-index: 2500 !important;
+    width: auto !important;
+    max-height: 48dvh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding: 18px !important;
+    border-radius: 26px !important;
+    z-index: 3500 !important;
+    -webkit-overflow-scrolling: touch !important;
   }
 
+  .left-panel::before,
+  .right-panel::before {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 5px;
+    border-radius: 999px;
+    margin: 0 auto 14px auto;
+    background: rgba(255, 255, 255, 0.28);
+  }
+
+  /* Default mobile: Marine Map hanya tampilkan left panel */
+  body.mobile-mode-map .left-panel {
+    display: block !important;
+  }
+
+  body.mobile-mode-map .right-panel {
+    display: none !important;
+  }
+
+  /* Analytics / Commodities / Investor: tampilkan right panel saja */
+  body.mobile-mode-analytics .left-panel,
+  body.mobile-mode-commodities .left-panel,
+  body.mobile-mode-investor .left-panel {
+    display: none !important;
+  }
+
+  body.mobile-mode-analytics .right-panel,
+  body.mobile-mode-commodities .right-panel,
+  body.mobile-mode-investor .right-panel {
+    display: block !important;
+  }
+
+  /* Jika tidak ada mode class, fallback */
+  body:not(.mobile-mode-map):not(.mobile-mode-analytics):not(.mobile-mode-commodities):not(.mobile-mode-investor) .right-panel {
+    display: none !important;
+  }
+
+  /* Supaya peta tetap terasa luas */
   .badge-row {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 8px !important;
-    margin-bottom: 14px !important;
-  }
-
-  .badge,
-  .live-badge {
-    font-size: 11px !important;
-    padding: 8px 12px !important;
+    display: none !important;
   }
 
   .left-panel h1 {
-    font-size: 30px !important;
+    font-size: 24px !important;
     line-height: 1.15 !important;
-    margin-bottom: 14px !important;
+    margin-bottom: 10px !important;
   }
 
   .left-panel p {
-    font-size: 15px !important;
-    line-height: 1.6 !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
   }
 
   .hero-buttons {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 12px !important;
-    margin-top: 18px !important;
+    gap: 10px !important;
+    margin-top: 14px !important;
   }
 
   .primary-btn,
   .secondary-btn {
     width: 100% !important;
-    min-height: 54px !important;
-    font-size: 14px !important;
-    border-radius: 18px !important;
+    min-height: 46px !important;
+    font-size: 13px !important;
+    border-radius: 16px !important;
   }
 
   .stats-grid {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    gap: 12px !important;
-    margin-top: 18px !important;
+    gap: 10px !important;
+    margin-top: 14px !important;
   }
 
   .stat-card {
-    min-height: 116px !important;
-    padding: 18px !important;
-    border-radius: 22px !important;
+    min-height: 92px !important;
+    padding: 14px !important;
+    border-radius: 18px !important;
   }
 
   .stat-card h2 {
-    font-size: 21px !important;
+    font-size: 18px !important;
     line-height: 1.2 !important;
     word-break: break-word !important;
   }
 
   .stat-card p {
-    font-size: 12px !important;
-    line-height: 1.35 !important;
+    font-size: 11px !important;
+    line-height: 1.3 !important;
   }
 
   .detail-panel {
     max-height: none !important;
     overflow: visible !important;
-    margin-top: 18px !important;
-    padding: 20px !important;
-    border-radius: 26px !important;
+    margin-top: 14px !important;
+    padding: 16px !important;
+    border-radius: 22px !important;
   }
 
   .detail-top {
     align-items: flex-start !important;
-    gap: 12px !important;
+    gap: 10px !important;
   }
 
-  .detail-top h3,
-  #detailTitle {
-    font-size: 28px !important;
+  #detailTitle,
+  .detail-top h3 {
+    font-size: 22px !important;
     line-height: 1.15 !important;
-    word-break: break-word !important;
   }
 
   .status {
-    font-size: 11px !important;
-    padding: 9px 12px !important;
+    font-size: 10px !important;
+    padding: 8px 10px !important;
     white-space: nowrap !important;
   }
 
   .detail-grid {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 12px !important;
+    gap: 10px !important;
   }
 
-  .detail-card {
-    min-height: auto !important;
-    padding: 16px !important;
+  .score-box {
+    margin: 14px 0 !important;
   }
 
-  /* RIGHT PANEL */
-  .right-panel {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    width: calc(100vw - 28px) !important;
-    max-height: none !important;
-    overflow: visible !important;
-    margin: 0 auto 30px auto !important;
-    padding: 18px !important;
-    border-radius: 28px !important;
-    z-index: 2500 !important;
-  }
-
+  /* RIGHT PANEL CONTENT */
   .search-box-wrapper,
   .filter-row,
   .advanced-filter-row,
@@ -1558,24 +1570,25 @@ body.investor-access-mode .investor-pitch {
   .advanced-filter-btn,
   .tool-btn {
     width: 100% !important;
-    min-height: 44px !important;
-    padding: 10px 8px !important;
-    font-size: 12px !important;
-    white-space: normal !important;
+    min-height: 42px !important;
+    padding: 9px 8px !important;
+    font-size: 11px !important;
     border-radius: 14px !important;
+    white-space: normal !important;
   }
 
-  .region-card,
-  .ranking-item,
   .analytics-card,
+  .ranking-item,
+  .region-card,
   .compare-box {
     border-radius: 18px !important;
+    padding: 14px !important;
   }
 
   .region-card h4,
   .ranking-item h4,
   .compare-box h4 {
-    font-size: 15px !important;
+    font-size: 14px !important;
     line-height: 1.35 !important;
     word-break: break-word !important;
   }
@@ -1588,10 +1601,10 @@ body.investor-access-mode .investor-pitch {
   }
 
   .chart-wrapper {
-    height: 240px !important;
+    height: 220px !important;
   }
 
-  /* HIDE DESKTOP FLOATING ITEMS ON MOBILE */
+  /* Hide desktop-only floating elements */
   #sidebarToggle,
   .sidebar-toggle,
   .floating-dashboard {
@@ -1599,12 +1612,9 @@ body.investor-access-mode .investor-pitch {
     visibility: hidden !important;
     opacity: 0 !important;
     pointer-events: none !important;
-    width: 0 !important;
-    height: 0 !important;
-    overflow: hidden !important;
   }
 
-  /* POPUP */
+  /* Leaflet popup mobile */
   .leaflet-popup-content-wrapper {
     max-width: 280px !important;
     border-radius: 18px !important;
@@ -1612,12 +1622,12 @@ body.investor-access-mode .investor-pitch {
 
   .leaflet-popup-content {
     width: 240px !important;
-    max-height: 300px !important;
+    max-height: 280px !important;
     overflow-y: auto !important;
   }
 
   .popup-content h2 {
-    font-size: 17px !important;
+    font-size: 16px !important;
     line-height: 1.25 !important;
   }
 
@@ -1627,48 +1637,38 @@ body.investor-access-mode .investor-pitch {
   }
 }
 
-/* Very small phone */
 @media screen and (max-width: 430px) {
-  .navbar,
   .left-panel,
   .right-panel {
-    width: calc(100vw - 20px) !important;
+    max-height: 45dvh !important;
   }
 
   .nav-left h2 {
-    font-size: 17px !important;
+    font-size: 15px !important;
   }
 
   .nav-left span {
-    font-size: 11px !important;
+    font-size: 10px !important;
   }
 
   .nav-btn {
-    font-size: 13px !important;
+    font-size: 12px !important;
   }
 
   .left-panel h1 {
-    font-size: 27px !important;
-  }
-
-  .left-panel p {
-    font-size: 14px !important;
+    font-size: 22px !important;
   }
 
   .stats-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr 1fr !important;
   }
 
-  .stat-card {
-    min-height: 96px !important;
+  .stat-card h2 {
+    font-size: 16px !important;
   }
 
-  .detail-top {
-    flex-direction: column !important;
-  }
-
-  .detail-top h3,
-  #detailTitle {
-    font-size: 25px !important;
+  #detailTitle,
+  .detail-top h3 {
+    font-size: 20px !important;
   }
 }
