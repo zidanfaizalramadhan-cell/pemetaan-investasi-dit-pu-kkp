@@ -1702,3 +1702,96 @@ body.investor-access-mode .investor-pitch {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* =====================================================
+   MOBILE CLEAN FIX - HIDE FLOATING ITEMS
+===================================================== */
+
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    height: auto !important;
+  }
+
+  body {
+    padding-bottom: 40px !important;
+  }
+
+  .navbar {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: calc(100vw - 24px) !important;
+    margin: 14px auto 14px auto !important;
+    z-index: 3000 !important;
+  }
+
+  .left-panel {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: calc(100vw - 24px) !important;
+    margin: 0 auto 18px auto !important;
+    max-height: none !important;
+    z-index: 2500 !important;
+  }
+
+  .right-panel {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: calc(100vw - 24px) !important;
+    margin: 0 auto 30px auto !important;
+    max-height: none !important;
+    z-index: 2500 !important;
+  }
+
+  .floating-dashboard {
+    display: none !important;
+  }
+
+  .sidebar-toggle {
+    display: none !important;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .hero-buttons {
+    grid-template-columns: 1fr !important;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100% !important;
+  }
+
+  .left-panel h1 {
+    font-size: 34px !important;
+    line-height: 1.2 !important;
+  }
+
+  .left-panel p {
+    font-size: 16px !important;
+    line-height: 1.65 !important;
+  }
+
+  .detail-panel {
+    margin-bottom: 24px !important;
+  }
+
+  .region-list-wrapper,
+  .analytics-panel,
+  .ranking-panel,
+  .compare-panel,
+  .investor-pitch {
+    margin-bottom: 18px !important;
+  }
+}
