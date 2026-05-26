@@ -373,6 +373,12 @@ function pilihRegion(data, marker) {
   selectedRegionName = data.nama;
 
   updateDetailPanel(data);
+
+  if (window.innerWidth <= 900) {
+    setMobileModeClass('map');
+    scrollMobilePanelToTop();
+  }
+
   setActiveMarker(marker);
 
   map.closePopup();
@@ -788,7 +794,8 @@ navButtons.forEach(button => {
 function showMarineMapMode() {
   activeMode = 'marine';
   setMobileModeClass('map');
-  
+  scrollMobilePanelToTop();
+
   showElement(searchPanel);
   showElement(filterPanel);
   showElement(advancedFilterPanel);
@@ -813,6 +820,7 @@ function showMarineMapMode() {
 function showAnalyticsMode() {
   activeMode = 'analytics';
   setMobileModeClass('analytics');
+  scrollMobilePanelToTop();
 
   hideElement(searchPanel);
   hideElement(filterPanel);
@@ -846,6 +854,7 @@ function showAnalyticsMode() {
 function showCommodityMode() {
   activeMode = 'commodities';
   setMobileModeClass('commodities');
+  scrollMobilePanelToTop();
 
   hideElement(searchPanel);
   hideElement(filterPanel);
@@ -879,6 +888,7 @@ function showCommodityMode() {
 function showInvestorMode() {
   activeMode = 'investor';
   setMobileModeClass('investor');
+  scrollMobilePanelToTop();
 
   hideElement(searchPanel);
   hideElement(filterPanel);
@@ -1561,3 +1571,18 @@ window.addEventListener('orientationchange', () => {
     }
   }, 300);
 });
+
+function scrollMobilePanelToTop() {
+  if (window.innerWidth > 900) return;
+
+  const leftPanelEl = document.querySelector('.left-panel');
+  const rightPanelEl = document.querySelector('.right-panel');
+
+  if (leftPanelEl) {
+    leftPanelEl.scrollTop = 0;
+  }
+
+  if (rightPanelEl) {
+    rightPanelEl.scrollTop = 0;
+  }
+}
