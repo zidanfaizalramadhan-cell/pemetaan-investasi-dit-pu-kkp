@@ -1948,3 +1948,24 @@ body.investor-access-mode .investor-pitch {
     height: 240px !important;
   }
 }
+
+/* =====================================================
+   MOBILE CLEAN MODE FROM JS
+===================================================== */
+
+body.mobile-clean-mode .sidebar-toggle,
+body.mobile-clean-mode #sidebarToggle,
+body.mobile-clean-mode .floating-dashboard {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+body.mobile-clean-mode .left-panel {
+  margin-bottom: 18px !important;
+}
+
+body.mobile-clean-mode .right-panel {
+  margin-bottom: 40px !important;
+}
