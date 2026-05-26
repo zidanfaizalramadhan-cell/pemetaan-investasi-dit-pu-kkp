@@ -787,8 +787,8 @@ navButtons.forEach(button => {
 
 function showMarineMapMode() {
   activeMode = 'marine';
-
   setMobileModeClass('map');
+  
   showElement(searchPanel);
   showElement(filterPanel);
   showElement(advancedFilterPanel);
@@ -812,8 +812,8 @@ function showMarineMapMode() {
 
 function showAnalyticsMode() {
   activeMode = 'analytics';
-
   setMobileModeClass('analytics');
+
   hideElement(searchPanel);
   hideElement(filterPanel);
   hideElement(advancedFilterPanel);
@@ -845,8 +845,8 @@ function showAnalyticsMode() {
 
 function showCommodityMode() {
   activeMode = 'commodities';
-
   setMobileModeClass('commodities');
+
   hideElement(searchPanel);
   hideElement(filterPanel);
   hideElement(advancedFilterPanel);
@@ -878,8 +878,8 @@ function showCommodityMode() {
 
 function showInvestorMode() {
   activeMode = 'investor';
-
   setMobileModeClass('investor');
+
   hideElement(searchPanel);
   hideElement(filterPanel);
   hideElement(advancedFilterPanel);
@@ -1487,41 +1487,6 @@ setTimeout(() => {
 }, 1000);
 
 /* =====================================================
-   FORCE MOBILE CLEAN UI
-===================================================== */
-
-function forceMobileCleanUI() {
-  const isMobile = window.innerWidth <= 900;
-  const sidebarToggleEl = document.getElementById('sidebarToggle');
-  const floatingDashboardEl = document.querySelector('.floating-dashboard');
-
-  if (isMobile) {
-    if (sidebarToggleEl) {
-      sidebarToggleEl.style.display = 'none';
-    }
-
-    if (floatingDashboardEl) {
-      floatingDashboardEl.style.display = 'none';
-    }
-  } else {
-    if (sidebarToggleEl) {
-      sidebarToggleEl.style.display = '';
-    }
-
-    if (floatingDashboardEl) {
-      floatingDashboardEl.style.display = '';
-    }
-  }
-}
-
-window.addEventListener('load', forceMobileCleanUI);
-window.addEventListener('resize', forceMobileCleanUI);
-window.addEventListener('orientationchange', forceMobileCleanUI);
-
-setTimeout(forceMobileCleanUI, 500);
-setTimeout(forceMobileCleanUI, 1200);
-
-/* =====================================================
    MOBILE MODE CLASS
 ===================================================== */
 
@@ -1535,13 +1500,40 @@ function setMobileModeClass(mode) {
 
   document.body.classList.add(`mobile-mode-${mode}`);
 
+  const sidebarToggleEl = document.getElementById('sidebarToggle');
+  const floatingDashboardEl = document.querySelector('.floating-dashboard');
+
   if (window.innerWidth <= 900) {
+    if (sidebarToggleEl) {
+      sidebarToggleEl.style.display = 'none';
+    }
+
+    if (floatingDashboardEl) {
+      floatingDashboardEl.style.display = 'none';
+    }
+
     forceMapResize();
+  } else {
+    if (sidebarToggleEl) {
+      sidebarToggleEl.style.display = '';
+    }
+
+    if (floatingDashboardEl) {
+      floatingDashboardEl.style.display = '';
+    }
   }
 }
 
 window.addEventListener('load', () => {
-  setMobileModeClass('map');
+  if (activeMode === 'analytics') {
+    setMobileModeClass('analytics');
+  } else if (activeMode === 'commodities') {
+    setMobileModeClass('commodities');
+  } else if (activeMode === 'investor') {
+    setMobileModeClass('investor');
+  } else {
+    setMobileModeClass('map');
+  }
 });
 
 window.addEventListener('resize', () => {
@@ -1554,4 +1546,18 @@ window.addEventListener('resize', () => {
   } else {
     setMobileModeClass('map');
   }
+});
+
+window.addEventListener('orientationchange', () => {
+  setTimeout(() => {
+    if (activeMode === 'analytics') {
+      setMobileModeClass('analytics');
+    } else if (activeMode === 'commodities') {
+      setMobileModeClass('commodities');
+    } else if (activeMode === 'investor') {
+      setMobileModeClass('investor');
+    } else {
+      setMobileModeClass('map');
+    }
+  }, 300);
 });
