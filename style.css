@@ -1494,3 +1494,211 @@ body.investor-access-mode .investor-pitch {
     height: 240px !important;
   }
 }
+
+/* =====================================================
+   FINAL MOBILE FIX - CLEAN STACK LAYOUT
+===================================================== */
+
+@media (max-width: 768px) {
+  html,
+  body {
+    width: 100% !important;
+    min-height: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+
+  body {
+    padding: 0 !important;
+  }
+
+  #map,
+  .leaflet-container {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 1 !important;
+  }
+
+  .map-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 2 !important;
+  }
+
+  .navbar {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: calc(100vw - 24px) !important;
+    margin: 14px auto 16px auto !important;
+    padding: 18px !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    z-index: 3000 !important;
+  }
+
+  .nav-left {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+  }
+
+  .logo-circle {
+    width: 58px !important;
+    height: 58px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .nav-left h2 {
+    font-size: 20px !important;
+    line-height: 1.2 !important;
+  }
+
+  .nav-left span {
+    font-size: 13px !important;
+  }
+
+  .nav-right {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  .nav-btn {
+    width: 100% !important;
+    padding: 14px 10px !important;
+    font-size: 14px !important;
+    border-radius: 18px !important;
+  }
+
+  .left-panel {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: calc(100vw - 24px) !important;
+    max-height: none !important;
+    margin: 0 auto 16px auto !important;
+    padding: 20px !important;
+    z-index: 2500 !important;
+  }
+
+  .left-panel h1 {
+    font-size: 26px !important;
+    line-height: 1.2 !important;
+  }
+
+  .left-panel p {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+
+  .badge-row {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  .hero-buttons {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .right-panel {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: calc(100vw - 24px) !important;
+    max-height: none !important;
+    margin: 0 auto 20px auto !important;
+    padding: 18px !important;
+    z-index: 2500 !important;
+  }
+
+  .filter-row,
+  .advanced-filter-row,
+  .map-tools {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+
+  .filter-btn,
+  .advanced-filter-btn,
+  .tool-btn {
+    width: 100% !important;
+    font-size: 12px !important;
+    padding: 10px 8px !important;
+    white-space: normal !important;
+  }
+
+  .floating-dashboard {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: calc(100vw - 24px) !important;
+    margin: 0 auto 90px auto !important;
+    transform: none !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    z-index: 2500 !important;
+  }
+
+  .sidebar-toggle {
+    position: fixed !important;
+    right: 14px !important;
+    bottom: 20px !important;
+    top: auto !important;
+    z-index: 4000 !important;
+    padding: 12px 16px !important;
+    font-size: 12px !important;
+  }
+
+  .right-panel.hide-right-panel {
+    display: none !important;
+  }
+
+  body.right-panel-hidden .sidebar-toggle {
+    right: 14px !important;
+  }
+
+  .leaflet-popup-content-wrapper {
+    max-width: 280px !important;
+  }
+
+  .leaflet-popup-content {
+    width: 240px !important;
+    max-height: 300px !important;
+    overflow-y: auto !important;
+  }
+
+  .chart-wrapper {
+    height: 240px !important;
+  }
+
+  .compare-select-grid,
+  .compare-row {
+    grid-template-columns: 1fr !important;
+  }
+}
