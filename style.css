@@ -1312,7 +1312,7 @@ body.investor-access-mode .investor-pitch {
 }
 
 /* =====================================================
-   MOBILE UX FINAL - MAP FOCUS + COMPACT BOTTOM SHEET
+   MOBILE UX FINAL - COMPACT TOP + COMPACT BOTTOM
 ===================================================== */
 
 @media screen and (max-width: 900px) {
@@ -1321,8 +1321,8 @@ body.investor-access-mode .investor-pitch {
     width: 100% !important;
     height: 100dvh !important;
     overflow: hidden !important;
-    padding: 0 !important;
     margin: 0 !important;
+    padding: 0 !important;
   }
 
   #map,
@@ -1342,17 +1342,19 @@ body.investor-access-mode .investor-pitch {
     z-index: 2 !important;
   }
 
-  /* NAVBAR COMPACT */
+  /* =========================
+     TOP NAVBAR - LEBIH KECIL
+  ========================= */
   .navbar {
     position: fixed !important;
-    top: 12px !important;
-    left: 12px !important;
-    right: 12px !important;
+    top: 10px !important;
+    left: 10px !important;
+    right: 10px !important;
     width: auto !important;
     height: auto !important;
     margin: 0 !important;
-    padding: 12px !important;
-    border-radius: 22px !important;
+    padding: 10px 12px !important;
+    border-radius: 20px !important;
     z-index: 5000 !important;
     display: flex !important;
     flex-direction: column !important;
@@ -1366,64 +1368,74 @@ body.investor-access-mode .investor-pitch {
   }
 
   .logo-circle {
-    width: 42px !important;
-    height: 42px !important;
+    width: 38px !important;
+    height: 38px !important;
     flex-shrink: 0 !important;
   }
 
   .nav-left h2 {
-    font-size: 15px !important;
-    line-height: 1.2 !important;
+    font-size: 14px !important;
+    line-height: 1.15 !important;
+    margin: 0 !important;
   }
 
   .nav-left span {
-    font-size: 10px !important;
+    font-size: 9px !important;
+    line-height: 1.2 !important;
   }
 
   .nav-right {
+    width: 100% !important;
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
     gap: 8px !important;
-    width: 100% !important;
   }
 
   .nav-btn {
     width: 100% !important;
-    min-height: 42px !important;
-    padding: 9px 6px !important;
-    font-size: 12px !important;
-    border-radius: 15px !important;
+    min-height: 40px !important;
+    padding: 8px 6px !important;
+    font-size: 11px !important;
+    border-radius: 14px !important;
+    white-space: normal !important;
   }
 
-  /* LEFT PANEL JADI BOTTOM SHEET */
-  .left-panel {
+  /* =========================
+     BOTTOM SHEET - LEBIH PENDEK
+  ========================= */
+  .left-panel,
+  .right-panel {
     position: fixed !important;
-    left: 12px !important;
-    right: 12px !important;
-    bottom: 12px !important;
+    left: 10px !important;
+    right: 10px !important;
+    bottom: 10px !important;
     top: auto !important;
     width: auto !important;
-    max-height: 42dvh !important;
+    max-height: 31dvh !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
-    padding: 16px !important;
-    border-radius: 24px !important;
+    padding: 14px !important;
+    border-radius: 22px !important;
     z-index: 4500 !important;
     margin: 0 !important;
     -webkit-overflow-scrolling: touch !important;
   }
 
-  .left-panel::before {
+  .left-panel::before,
+  .right-panel::before {
     content: "";
     display: block;
-    width: 46px;
-    height: 5px;
+    width: 42px;
+    height: 4px;
     border-radius: 999px;
-    margin: 0 auto 12px auto;
-    background: rgba(255, 255, 255, 0.28);
+    margin: 0 auto 10px auto;
+    background: rgba(255,255,255,0.28);
   }
 
-  /* Sembunyikan intro panjang di mobile */
+  /* =========================
+     MARINE MAP MOBILE:
+     HANYA TAMPILKAN DETAIL REGION
+  ========================= */
   .left-panel > .badge-row,
   .left-panel > h1,
   .left-panel > p,
@@ -1435,96 +1447,82 @@ body.investor-access-mode .investor-pitch {
   .detail-panel {
     display: block !important;
     margin: 0 !important;
-    padding: 14px !important;
+    padding: 12px !important;
+    border-radius: 18px !important;
     max-height: none !important;
     overflow: visible !important;
-    border-radius: 20px !important;
   }
 
   .detail-top {
+    gap: 8px !important;
     align-items: flex-start !important;
-    gap: 10px !important;
   }
 
   .detail-top span {
-    font-size: 10px !important;
+    font-size: 9px !important;
   }
 
   #detailTitle,
   .detail-top h3 {
-    font-size: 21px !important;
-    line-height: 1.2 !important;
-    word-break: break-word !important;
+    font-size: 18px !important;
+    line-height: 1.15 !important;
+    margin: 4px 0 0 0 !important;
   }
 
   #detailDescription {
-    font-size: 12px !important;
-    line-height: 1.45 !important;
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   .status {
-    font-size: 10px !important;
-    padding: 7px 10px !important;
+    font-size: 9px !important;
+    padding: 6px 9px !important;
     white-space: nowrap !important;
   }
 
   .score-box {
-    margin: 12px 0 !important;
-  }
-
-  .score-box h2 {
-    font-size: 20px !important;
-  }
-
-  .detail-grid {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 8px !important;
-  }
-
-  .detail-card {
+    margin: 10px 0 !important;
     padding: 12px !important;
     border-radius: 16px !important;
   }
 
+  .score-box h2 {
+    font-size: 18px !important;
+  }
+
+  .score-box span {
+    font-size: 9px !important;
+  }
+
+  .detail-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+
+  .detail-card {
+    padding: 10px !important;
+    border-radius: 14px !important;
+  }
+
   .detail-card span {
-    font-size: 10px !important;
+    font-size: 9px !important;
   }
 
   .detail-card h4 {
-    font-size: 13px !important;
-    line-height: 1.35 !important;
+    font-size: 11px !important;
+    line-height: 1.3 !important;
+    word-break: break-word !important;
   }
 
-  /* RIGHT PANEL JUGA BOTTOM SHEET UNTUK ANALYTICS / COMMODITIES / INVESTOR */
-  .right-panel {
-    position: fixed !important;
-    left: 12px !important;
-    right: 12px !important;
-    bottom: 12px !important;
-    top: auto !important;
-    width: auto !important;
-    max-height: 42dvh !important;
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-    padding: 16px !important;
-    border-radius: 24px !important;
-    z-index: 4500 !important;
-    margin: 0 !important;
-    -webkit-overflow-scrolling: touch !important;
-  }
-
-  .right-panel::before {
-    content: "";
-    display: block;
-    width: 46px;
-    height: 5px;
-    border-radius: 999px;
-    margin: 0 auto 12px auto;
-    background: rgba(255, 255, 255, 0.28);
-  }
-
-  /* Default Marine Map: right panel disembunyikan */
+  /* =========================
+     MODE SWITCH VISIBILITY
+  ========================= */
   body.mobile-mode-map .left-panel {
     display: block !important;
   }
@@ -1533,7 +1531,6 @@ body.investor-access-mode .investor-pitch {
     display: none !important;
   }
 
-  /* Mode kanan: left panel disembunyikan */
   body.mobile-mode-analytics .left-panel,
   body.mobile-mode-commodities .left-panel,
   body.mobile-mode-investor .left-panel {
@@ -1546,38 +1543,53 @@ body.investor-access-mode .investor-pitch {
     display: block !important;
   }
 
+  /* =========================
+     RIGHT PANEL CONTENT
+  ========================= */
+  .search-box-wrapper,
   .filter-row,
   .advanced-filter-row,
-  .map-tools {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 8px !important;
+  .map-tools,
+  .result-info {
+    display: none !important;
   }
 
-  .filter-btn,
-  .advanced-filter-btn,
-  .tool-btn {
-    width: 100% !important;
-    min-height: 40px !important;
-    padding: 8px !important;
-    font-size: 11px !important;
-    border-radius: 14px !important;
+  .analytics-panel,
+  .ranking-panel,
+  .region-list-wrapper,
+  .compare-panel,
+  .investor-pitch {
+    margin-bottom: 12px !important;
+    padding: 14px !important;
+    border-radius: 18px !important;
+  }
+
+  .analytics-header h2,
+  .section-header h3 {
+    font-size: 16px !important;
   }
 
   .analytics-card,
   .ranking-item,
   .region-card,
   .compare-box {
-    padding: 13px !important;
-    border-radius: 16px !important;
+    padding: 12px !important;
+    border-radius: 14px !important;
   }
 
+  .analytics-card h3,
   .region-card h4,
   .ranking-item h4,
   .compare-box h4 {
-    font-size: 14px !important;
-    line-height: 1.35 !important;
-    word-break: break-word !important;
+    font-size: 13px !important;
+    line-height: 1.3 !important;
+  }
+
+  .analytics-card span,
+  .region-card span,
+  .ranking-item span,
+  .compare-box span {
+    font-size: 10px !important;
   }
 
   .compare-select-grid,
@@ -1588,10 +1600,12 @@ body.investor-access-mode .investor-pitch {
   }
 
   .chart-wrapper {
-    height: 220px !important;
+    height: 180px !important;
   }
 
-  /* Hilangkan elemen desktop di mobile */
+  /* =========================
+     HIDE DESKTOP MOBILE CLUTTER
+  ========================= */
   #sidebarToggle,
   .sidebar-toggle,
   .floating-dashboard {
@@ -1601,14 +1615,34 @@ body.investor-access-mode .investor-pitch {
     pointer-events: none !important;
   }
 
+  /* =========================
+     POPUP SUPAYA LEBIH MUAT
+  ========================= */
+  .leaflet-popup {
+    z-index: 4600 !important;
+  }
+
   .leaflet-popup-content-wrapper {
-    max-width: 280px !important;
-    border-radius: 18px !important;
+    max-width: 240px !important;
+    border-radius: 16px !important;
   }
 
   .leaflet-popup-content {
-    width: 240px !important;
-    max-height: 260px !important;
+    width: 200px !important;
+    max-height: 180px !important;
     overflow-y: auto !important;
+    margin: 12px !important;
+  }
+
+  .popup-content h2 {
+    font-size: 15px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .popup-content p {
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+    margin-bottom: 8px !important;
   }
 }
