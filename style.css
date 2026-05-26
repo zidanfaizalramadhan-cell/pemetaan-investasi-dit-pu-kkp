@@ -1310,3 +1310,187 @@ body.investor-access-mode .investor-pitch {
   color: #7dd3fc;
   letter-spacing: 0.8px;
 }
+
+/* =====================================================
+   MOBILE RESPONSIVE FIX
+   Biar tampilan HP tidak acak-acakan
+===================================================== */
+
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    height: auto !important;
+  }
+
+  #map,
+  .leaflet-container {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 1 !important;
+  }
+
+  .map-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 2 !important;
+  }
+
+  .navbar {
+    position: fixed !important;
+    top: 10px !important;
+    left: 10px !important;
+    right: 10px !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 12px !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    z-index: 1500 !important;
+  }
+
+  .nav-left {
+    width: 100% !important;
+  }
+
+  .nav-left h2 {
+    font-size: 14px !important;
+  }
+
+  .nav-left span {
+    font-size: 10px !important;
+  }
+
+  .nav-right {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .nav-btn {
+    width: 100% !important;
+    padding: 10px 8px !important;
+    font-size: 11px !important;
+  }
+
+  .left-panel {
+    position: relative !important;
+    top: 150px !important;
+    left: 10px !important;
+    right: 10px !important;
+    width: calc(100vw - 20px) !important;
+    max-height: none !important;
+    margin-bottom: 16px !important;
+    z-index: 1200 !important;
+  }
+
+  .left-panel h1 {
+    font-size: 24px !important;
+    line-height: 1.2 !important;
+  }
+
+  .left-panel p {
+    font-size: 13px !important;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .stat-card {
+    padding: 14px !important;
+  }
+
+  .stat-card h2 {
+    font-size: 18px !important;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .right-panel {
+    position: relative !important;
+    top: 150px !important;
+    right: auto !important;
+    left: 10px !important;
+    width: calc(100vw - 20px) !important;
+    max-height: none !important;
+    margin-top: 16px !important;
+    margin-bottom: 120px !important;
+    z-index: 1200 !important;
+  }
+
+  .sidebar-toggle {
+    position: fixed !important;
+    top: auto !important;
+    bottom: 90px !important;
+    right: 16px !important;
+    z-index: 2000 !important;
+    padding: 12px 16px !important;
+    font-size: 12px !important;
+  }
+
+  .right-panel.hide-right-panel {
+    display: none !important;
+  }
+
+  .floating-dashboard {
+    position: fixed !important;
+    left: 10px !important;
+    right: 10px !important;
+    bottom: 12px !important;
+    width: calc(100vw - 20px) !important;
+    transform: none !important;
+    z-index: 1600 !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+    padding: 10px !important;
+  }
+
+  .floating-dashboard div {
+    padding: 10px !important;
+  }
+
+  .floating-dashboard span {
+    font-size: 10px !important;
+  }
+
+  .floating-dashboard h4 {
+    font-size: 13px !important;
+  }
+
+  .leaflet-popup-content-wrapper {
+    max-width: 280px !important;
+  }
+
+  .leaflet-popup-content {
+    width: 240px !important;
+    max-height: 300px !important;
+    overflow-y: auto !important;
+  }
+
+  .popup-content h2 {
+    font-size: 17px !important;
+  }
+
+  .popup-content p {
+    font-size: 12px !important;
+  }
+
+  .compare-select-grid,
+  .compare-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .chart-wrapper {
+    height: 240px !important;
+  }
+}
