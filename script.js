@@ -788,6 +788,7 @@ navButtons.forEach(button => {
 function showMarineMapMode() {
   activeMode = 'marine';
 
+  setMobileModeClass('map');
   showElement(searchPanel);
   showElement(filterPanel);
   showElement(advancedFilterPanel);
@@ -812,6 +813,7 @@ function showMarineMapMode() {
 function showAnalyticsMode() {
   activeMode = 'analytics';
 
+  setMobileModeClass('analytics');
   hideElement(searchPanel);
   hideElement(filterPanel);
   hideElement(advancedFilterPanel);
@@ -844,6 +846,7 @@ function showAnalyticsMode() {
 function showCommodityMode() {
   activeMode = 'commodities';
 
+  setMobileModeClass('commodities');
   hideElement(searchPanel);
   hideElement(filterPanel);
   hideElement(advancedFilterPanel);
@@ -876,6 +879,7 @@ function showCommodityMode() {
 function showInvestorMode() {
   activeMode = 'investor';
 
+  setMobileModeClass('investor');
   hideElement(searchPanel);
   hideElement(filterPanel);
   hideElement(advancedFilterPanel);
@@ -1516,3 +1520,38 @@ window.addEventListener('orientationchange', forceMobileCleanUI);
 
 setTimeout(forceMobileCleanUI, 500);
 setTimeout(forceMobileCleanUI, 1200);
+
+/* =====================================================
+   MOBILE MODE CLASS
+===================================================== */
+
+function setMobileModeClass(mode) {
+  document.body.classList.remove(
+    'mobile-mode-map',
+    'mobile-mode-analytics',
+    'mobile-mode-commodities',
+    'mobile-mode-investor'
+  );
+
+  document.body.classList.add(`mobile-mode-${mode}`);
+
+  if (window.innerWidth <= 900) {
+    forceMapResize();
+  }
+}
+
+window.addEventListener('load', () => {
+  setMobileModeClass('map');
+});
+
+window.addEventListener('resize', () => {
+  if (activeMode === 'analytics') {
+    setMobileModeClass('analytics');
+  } else if (activeMode === 'commodities') {
+    setMobileModeClass('commodities');
+  } else if (activeMode === 'investor') {
+    setMobileModeClass('investor');
+  } else {
+    setMobileModeClass('map');
+  }
+});
