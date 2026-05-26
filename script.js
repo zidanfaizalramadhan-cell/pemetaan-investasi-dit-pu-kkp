@@ -1481,3 +1481,57 @@ window.addEventListener('resize', () => {
 setTimeout(() => {
   forceMapResize();
 }, 1000);
+
+/* =====================================================
+   FORCE MOBILE UI CLEAN
+===================================================== */
+
+function forceMobileCleanUI() {
+  const isMobile = window.innerWidth <= 900;
+
+  const sidebarToggleEl = document.getElementById('sidebarToggle');
+  const floatingDashboardEl = document.querySelector('.floating-dashboard');
+
+  if (isMobile) {
+    if (sidebarToggleEl) {
+      sidebarToggleEl.style.display = 'none';
+      sidebarToggleEl.style.visibility = 'hidden';
+      sidebarToggleEl.style.opacity = '0';
+      sidebarToggleEl.style.pointerEvents = 'none';
+    }
+
+    if (floatingDashboardEl) {
+      floatingDashboardEl.style.display = 'none';
+      floatingDashboardEl.style.visibility = 'hidden';
+      floatingDashboardEl.style.opacity = '0';
+      floatingDashboardEl.style.pointerEvents = 'none';
+    }
+
+    document.body.classList.add('mobile-clean-mode');
+  } else {
+    if (sidebarToggleEl) {
+      sidebarToggleEl.style.display = '';
+      sidebarToggleEl.style.visibility = '';
+      sidebarToggleEl.style.opacity = '';
+      sidebarToggleEl.style.pointerEvents = '';
+    }
+
+    if (floatingDashboardEl) {
+      floatingDashboardEl.style.display = '';
+      floatingDashboardEl.style.visibility = '';
+      floatingDashboardEl.style.opacity = '';
+      floatingDashboardEl.style.pointerEvents = '';
+    }
+
+    document.body.classList.remove('mobile-clean-mode');
+  }
+
+  forceMapResize();
+}
+
+window.addEventListener('load', forceMobileCleanUI);
+window.addEventListener('resize', forceMobileCleanUI);
+window.addEventListener('orientationchange', forceMobileCleanUI);
+
+setTimeout(forceMobileCleanUI, 500);
+setTimeout(forceMobileCleanUI, 1200);
