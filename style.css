@@ -1312,204 +1312,22 @@ body.investor-access-mode .investor-pitch {
 }
 
 /* =====================================================
-   MOBILE RESPONSIVE FIX
-   Biar tampilan HP tidak acak-acakan
+   MOBILE RESPONSIVE FINAL
+   Clean mobile layout for phone screen
 ===================================================== */
 
-@media (max-width: 768px) {
-  html,
-  body {
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
-    height: auto !important;
-  }
-
-  #map,
-  .leaflet-container {
-    position: fixed !important;
-    inset: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    z-index: 1 !important;
-  }
-
-  .map-overlay {
-    position: fixed !important;
-    inset: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    z-index: 2 !important;
-  }
-
-  .navbar {
-    position: fixed !important;
-    top: 10px !important;
-    left: 10px !important;
-    right: 10px !important;
-    width: auto !important;
-    height: auto !important;
-    padding: 12px !important;
-    flex-direction: column !important;
-    gap: 10px !important;
-    z-index: 1500 !important;
-  }
-
-  .nav-left {
-    width: 100% !important;
-  }
-
-  .nav-left h2 {
-    font-size: 14px !important;
-  }
-
-  .nav-left span {
-    font-size: 10px !important;
-  }
-
-  .nav-right {
-    width: 100% !important;
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 8px !important;
-  }
-
-  .nav-btn {
-    width: 100% !important;
-    padding: 10px 8px !important;
-    font-size: 11px !important;
-  }
-
-  .left-panel {
-    position: relative !important;
-    top: 150px !important;
-    left: 10px !important;
-    right: 10px !important;
-    width: calc(100vw - 20px) !important;
-    max-height: none !important;
-    margin-bottom: 16px !important;
-    z-index: 1200 !important;
-  }
-
-  .left-panel h1 {
-    font-size: 24px !important;
-    line-height: 1.2 !important;
-  }
-
-  .left-panel p {
-    font-size: 13px !important;
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 10px !important;
-  }
-
-  .stat-card {
-    padding: 14px !important;
-  }
-
-  .stat-card h2 {
-    font-size: 18px !important;
-  }
-
-  .detail-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  .right-panel {
-    position: relative !important;
-    top: 150px !important;
-    right: auto !important;
-    left: 10px !important;
-    width: calc(100vw - 20px) !important;
-    max-height: none !important;
-    margin-top: 16px !important;
-    margin-bottom: 120px !important;
-    z-index: 1200 !important;
-  }
-
-  .sidebar-toggle {
-    position: fixed !important;
-    top: auto !important;
-    bottom: 90px !important;
-    right: 16px !important;
-    z-index: 2000 !important;
-    padding: 12px 16px !important;
-    font-size: 12px !important;
-  }
-
-  .right-panel.hide-right-panel {
-    display: none !important;
-  }
-
-  .floating-dashboard {
-    position: fixed !important;
-    left: 10px !important;
-    right: 10px !important;
-    bottom: 12px !important;
-    width: calc(100vw - 20px) !important;
-    transform: none !important;
-    z-index: 1600 !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 8px !important;
-    padding: 10px !important;
-  }
-
-  .floating-dashboard div {
-    padding: 10px !important;
-  }
-
-  .floating-dashboard span {
-    font-size: 10px !important;
-  }
-
-  .floating-dashboard h4 {
-    font-size: 13px !important;
-  }
-
-  .leaflet-popup-content-wrapper {
-    max-width: 280px !important;
-  }
-
-  .leaflet-popup-content {
-    width: 240px !important;
-    max-height: 300px !important;
-    overflow-y: auto !important;
-  }
-
-  .popup-content h2 {
-    font-size: 17px !important;
-  }
-
-  .popup-content p {
-    font-size: 12px !important;
-  }
-
-  .compare-select-grid,
-  .compare-row {
-    grid-template-columns: 1fr !important;
-  }
-
-  .chart-wrapper {
-    height: 240px !important;
-  }
-}
-
-/* =====================================================
-   FINAL MOBILE FIX - CLEAN STACK LAYOUT
-===================================================== */
-
-@media (max-width: 768px) {
+@media screen and (max-width: 900px) {
   html,
   body {
     width: 100% !important;
     min-height: 100% !important;
+    height: auto !important;
     overflow-x: hidden !important;
     overflow-y: auto !important;
   }
 
   body {
-    padding: 0 !important;
+    padding: 14px 0 40px 0 !important;
   }
 
   #map,
@@ -1529,18 +1347,20 @@ body.investor-access-mode .investor-pitch {
     z-index: 2 !important;
   }
 
+  /* HEADER */
   .navbar {
     position: relative !important;
     top: auto !important;
     left: auto !important;
     right: auto !important;
-    width: calc(100vw - 24px) !important;
-    margin: 14px auto 16px auto !important;
-    padding: 18px !important;
+    width: calc(100vw - 28px) !important;
     height: auto !important;
+    margin: 0 auto 18px auto !important;
+    padding: 18px !important;
     display: flex !important;
     flex-direction: column !important;
     gap: 16px !important;
+    border-radius: 28px !important;
     z-index: 3000 !important;
   }
 
@@ -1552,18 +1372,19 @@ body.investor-access-mode .investor-pitch {
   }
 
   .logo-circle {
-    width: 58px !important;
-    height: 58px !important;
+    width: 56px !important;
+    height: 56px !important;
     flex-shrink: 0 !important;
   }
 
   .nav-left h2 {
-    font-size: 20px !important;
+    font-size: 19px !important;
     line-height: 1.2 !important;
   }
 
   .nav-left span {
-    font-size: 13px !important;
+    font-size: 12px !important;
+    line-height: 1.3 !important;
   }
 
   .nav-right {
@@ -1575,63 +1396,154 @@ body.investor-access-mode .investor-pitch {
 
   .nav-btn {
     width: 100% !important;
-    padding: 14px 10px !important;
+    min-height: 52px !important;
+    padding: 12px 8px !important;
     font-size: 14px !important;
     border-radius: 18px !important;
+    white-space: normal !important;
   }
 
+  /* LEFT PANEL */
   .left-panel {
     position: relative !important;
     top: auto !important;
     left: auto !important;
     right: auto !important;
-    width: calc(100vw - 24px) !important;
+    width: calc(100vw - 28px) !important;
     max-height: none !important;
-    margin: 0 auto 16px auto !important;
+    overflow: visible !important;
+    margin: 0 auto 18px auto !important;
     padding: 20px !important;
+    border-radius: 28px !important;
     z-index: 2500 !important;
   }
 
+  .badge-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .badge,
+  .live-badge {
+    font-size: 11px !important;
+    padding: 8px 12px !important;
+  }
+
   .left-panel h1 {
-    font-size: 26px !important;
-    line-height: 1.2 !important;
+    font-size: 30px !important;
+    line-height: 1.15 !important;
+    margin-bottom: 14px !important;
   }
 
   .left-panel p {
-    font-size: 14px !important;
+    font-size: 15px !important;
     line-height: 1.6 !important;
-  }
-
-  .badge-row {
-    flex-wrap: wrap !important;
-    gap: 8px !important;
   }
 
   .hero-buttons {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 10px !important;
+    gap: 12px !important;
+    margin-top: 18px !important;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100% !important;
+    min-height: 54px !important;
+    font-size: 14px !important;
+    border-radius: 18px !important;
   }
 
   .stats-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+    margin-top: 18px !important;
+  }
+
+  .stat-card {
+    min-height: 116px !important;
+    padding: 18px !important;
+    border-radius: 22px !important;
+  }
+
+  .stat-card h2 {
+    font-size: 21px !important;
+    line-height: 1.2 !important;
+    word-break: break-word !important;
+  }
+
+  .stat-card p {
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+  }
+
+  .detail-panel {
+    max-height: none !important;
+    overflow: visible !important;
+    margin-top: 18px !important;
+    padding: 20px !important;
+    border-radius: 26px !important;
+  }
+
+  .detail-top {
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+
+  .detail-top h3,
+  #detailTitle {
+    font-size: 28px !important;
+    line-height: 1.15 !important;
+    word-break: break-word !important;
+  }
+
+  .status {
+    font-size: 11px !important;
+    padding: 9px 12px !important;
+    white-space: nowrap !important;
+  }
+
+  .detail-grid {
+    display: grid !important;
     grid-template-columns: 1fr !important;
     gap: 12px !important;
   }
 
-  .detail-grid {
-    grid-template-columns: 1fr !important;
+  .detail-card {
+    min-height: auto !important;
+    padding: 16px !important;
   }
 
+  /* RIGHT PANEL */
   .right-panel {
     position: relative !important;
     top: auto !important;
     left: auto !important;
     right: auto !important;
-    width: calc(100vw - 24px) !important;
+    width: calc(100vw - 28px) !important;
     max-height: none !important;
-    margin: 0 auto 20px auto !important;
+    overflow: visible !important;
+    margin: 0 auto 30px auto !important;
     padding: 18px !important;
+    border-radius: 28px !important;
     z-index: 2500 !important;
+  }
+
+  .search-box-wrapper,
+  .filter-row,
+  .advanced-filter-row,
+  .map-tools,
+  .result-info,
+  .analytics-panel,
+  .ranking-panel,
+  .region-list-wrapper,
+  .compare-panel,
+  .investor-pitch {
+    width: 100% !important;
   }
 
   .filter-row,
@@ -1646,45 +1558,56 @@ body.investor-access-mode .investor-pitch {
   .advanced-filter-btn,
   .tool-btn {
     width: 100% !important;
-    font-size: 12px !important;
+    min-height: 44px !important;
     padding: 10px 8px !important;
+    font-size: 12px !important;
     white-space: normal !important;
+    border-radius: 14px !important;
   }
 
-  .floating-dashboard {
-    position: relative !important;
-    left: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-    width: calc(100vw - 24px) !important;
-    margin: 0 auto 90px auto !important;
-    transform: none !important;
+  .region-card,
+  .ranking-item,
+  .analytics-card,
+  .compare-box {
+    border-radius: 18px !important;
+  }
+
+  .region-card h4,
+  .ranking-item h4,
+  .compare-box h4 {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    word-break: break-word !important;
+  }
+
+  .compare-select-grid,
+  .compare-row {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 12px !important;
-    z-index: 2500 !important;
+    gap: 10px !important;
   }
 
-  .sidebar-toggle {
-    position: fixed !important;
-    right: 14px !important;
-    bottom: 20px !important;
-    top: auto !important;
-    z-index: 4000 !important;
-    padding: 12px 16px !important;
-    font-size: 12px !important;
+  .chart-wrapper {
+    height: 240px !important;
   }
 
-  .right-panel.hide-right-panel {
+  /* HIDE DESKTOP FLOATING ITEMS ON MOBILE */
+  #sidebarToggle,
+  .sidebar-toggle,
+  .floating-dashboard {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
   }
 
-  body.right-panel-hidden .sidebar-toggle {
-    right: 14px !important;
-  }
-
+  /* POPUP */
   .leaflet-popup-content-wrapper {
     max-width: 280px !important;
+    border-radius: 18px !important;
   }
 
   .leaflet-popup-content {
@@ -1693,279 +1616,59 @@ body.investor-access-mode .investor-pitch {
     overflow-y: auto !important;
   }
 
-  .chart-wrapper {
-    height: 240px !important;
+  .popup-content h2 {
+    font-size: 17px !important;
+    line-height: 1.25 !important;
   }
 
-  .compare-select-grid,
-  .compare-row {
-    grid-template-columns: 1fr !important;
+  .popup-content p {
+    font-size: 12px !important;
+    line-height: 1.45 !important;
   }
 }
 
-/* =====================================================
-   MOBILE CLEAN FIX - HIDE FLOATING ITEMS
-===================================================== */
-
-@media (max-width: 768px) {
-  html,
-  body {
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
-    height: auto !important;
-  }
-
-  body {
-    padding-bottom: 40px !important;
-  }
-
-  .navbar {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    width: calc(100vw - 24px) !important;
-    margin: 14px auto 14px auto !important;
-    z-index: 3000 !important;
-  }
-
-  .left-panel {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    width: calc(100vw - 24px) !important;
-    margin: 0 auto 18px auto !important;
-    max-height: none !important;
-    z-index: 2500 !important;
-  }
-
+/* Very small phone */
+@media screen and (max-width: 430px) {
+  .navbar,
+  .left-panel,
   .right-panel {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    width: calc(100vw - 24px) !important;
-    margin: 0 auto 30px auto !important;
-    max-height: none !important;
-    z-index: 2500 !important;
+    width: calc(100vw - 20px) !important;
   }
 
-  .floating-dashboard {
-    display: none !important;
+  .nav-left h2 {
+    font-size: 17px !important;
   }
 
-  .sidebar-toggle {
-    display: none !important;
+  .nav-left span {
+    font-size: 11px !important;
   }
 
-  .stats-grid {
-    grid-template-columns: 1fr !important;
-    gap: 12px !important;
-  }
-
-  .hero-buttons {
-    grid-template-columns: 1fr !important;
-  }
-
-  .primary-btn,
-  .secondary-btn {
-    width: 100% !important;
+  .nav-btn {
+    font-size: 13px !important;
   }
 
   .left-panel h1 {
-    font-size: 34px !important;
-    line-height: 1.2 !important;
+    font-size: 27px !important;
   }
 
   .left-panel p {
-    font-size: 16px !important;
-    line-height: 1.65 !important;
-  }
-
-  .detail-panel {
-    margin-bottom: 24px !important;
-  }
-
-  .region-list-wrapper,
-  .analytics-panel,
-  .ranking-panel,
-  .compare-panel,
-  .investor-pitch {
-    margin-bottom: 18px !important;
-  }
-}
-
-/* =====================================================
-   FORCE MOBILE CLEAN - FINAL OVERRIDE
-===================================================== */
-
-@media screen and (max-width: 900px) {
-  html,
-  body {
-    width: 100% !important;
-    height: auto !important;
-    min-height: 100% !important;
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
-  }
-
-  #map,
-  .leaflet-container {
-    position: fixed !important;
-    inset: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    z-index: 1 !important;
-  }
-
-  .map-overlay {
-    position: fixed !important;
-    inset: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    z-index: 2 !important;
-  }
-
-  .navbar {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    width: calc(100vw - 24px) !important;
-    height: auto !important;
-    margin: 18px auto 16px auto !important;
-    padding: 18px !important;
-    z-index: 3000 !important;
-  }
-
-  .left-panel {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    width: calc(100vw - 24px) !important;
-    max-height: none !important;
-    margin: 0 auto 18px auto !important;
-    padding: 20px !important;
-    z-index: 2500 !important;
-  }
-
-  .right-panel {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    width: calc(100vw - 24px) !important;
-    max-height: none !important;
-    margin: 0 auto 40px auto !important;
-    padding: 18px !important;
-    z-index: 2500 !important;
-  }
-
-  #sidebarToggle,
-  .sidebar-toggle {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-    width: 0 !important;
-    height: 0 !important;
-  }
-
-  .floating-dashboard {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-    width: 0 !important;
-    height: 0 !important;
+    font-size: 14px !important;
   }
 
   .stats-grid {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 12px !important;
+    grid-template-columns: 1fr !important;
   }
 
   .stat-card {
-    min-height: 110px !important;
-    padding: 18px !important;
+    min-height: 96px !important;
   }
 
-  .stat-card h2 {
-    font-size: 22px !important;
-    line-height: 1.2 !important;
+  .detail-top {
+    flex-direction: column !important;
   }
 
-  .stat-card p {
-    font-size: 13px !important;
-    line-height: 1.3 !important;
+  .detail-top h3,
+  #detailTitle {
+    font-size: 25px !important;
   }
-
-  .left-panel h1 {
-    font-size: 34px !important;
-    line-height: 1.18 !important;
-  }
-
-  .left-panel p {
-    font-size: 16px !important;
-    line-height: 1.6 !important;
-  }
-
-  .hero-buttons {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 12px !important;
-  }
-
-  .primary-btn,
-  .secondary-btn {
-    width: 100% !important;
-  }
-
-  .detail-panel {
-    max-height: none !important;
-    overflow: visible !important;
-  }
-
-  .detail-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  .filter-row,
-  .advanced-filter-row,
-  .map-tools {
-    grid-template-columns: 1fr 1fr !important;
-  }
-
-  .compare-row,
-  .compare-select-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  .chart-wrapper {
-    height: 240px !important;
-  }
-}
-
-/* =====================================================
-   MOBILE CLEAN MODE FROM JS
-===================================================== */
-
-body.mobile-clean-mode .sidebar-toggle,
-body.mobile-clean-mode #sidebarToggle,
-body.mobile-clean-mode .floating-dashboard {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
-
-body.mobile-clean-mode .left-panel {
-  margin-bottom: 18px !important;
-}
-
-body.mobile-clean-mode .right-panel {
-  margin-bottom: 40px !important;
 }
