@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Indonesia Marine Investment Intelligence</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- LOADER -->
+  <div id="loader">
+  <div class="loader-box">
+    <div class="loader-ring"></div>
+
+    <h1>Indonesia Marine Investment</h1>
+
+    <p>Loading investment intelligence dashboard...</p>
+
+    <div class="loader-credit">
+      <small>Created by</small>
+      <strong>Zidan Faizal Ramadhan</strong>
+    </div>
+  </div>
+</div>
+
+  <!-- MAP -->
+  <div id="map"></div>
+  <div class="map-overlay"></div>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-left">
+      <div class="logo-circle"></div>
+
+      <div>
+        <h2>Indonesia Marine Investment</h2>
+        <span>Investment Intelligence Dashboard</span>
+      </div>
+    </div>
+
+    <nav class="nav-right">
+      <button class="nav-btn active-btn" type="button">
+        Marine Map
+      </button>
+
+      <button class="nav-btn" type="button">
+        Analytics
+      </button>
+
+      <button class="nav-btn" type="button">
+        Commodities
+      </button>
+
+      <button class="nav-btn premium-btn" type="button">
+        Investor Access
+      </button>
+    </nav>
+  </header>
+
+  <!-- LEFT PANEL -->
+  <aside class="left-panel">
+    <div class="badge-row">
+      <span class="badge">Marine Economy</span>
+      <span class="live-badge">● Live Data</span>
+    </div>
+
+    <h1>Indonesia Marine Investment Map</h1>
+
+    <p>
+      Interactive investment intelligence platform for identifying regional
+      opportunities in fisheries, aquaculture, seaweed, marine tourism, cold
+      chain, and maritime logistics across Indonesia.
+    </p>
+
+    <div class="hero-buttons">
+      <button class="primary-btn" type="button">
+        Reset Dashboard
+      </button>
+
+      <button class="secondary-btn" type="button">
+        Export Report
+      </button>
+    </div>
+
+    <!-- STATS -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <h2 id="statTotalValue">USD 0B</h2>
+        <p>Total Investment Value</p>
+      </div>
+
+      <div class="stat-card">
+        <h2 id="statRegions">0</h2>
+        <p>Investment Regions</p>
+      </div>
+
+      <div class="stat-card">
+        <h2 id="statAvgRoi">0%</h2>
+        <p>Average ROI</p>
+      </div>
+
+      <div class="stat-card">
+        <h2 id="statCommodities">0</h2>
+        <p>Commodity Groups</p>
+      </div>
+    </section>
+
+    <!-- DETAIL PANEL -->
+    <section class="detail-panel">
+      <div class="detail-top">
+        <div>
+          <span>Selected Region</span>
+          <h3 id="detailTitle">Select a Region</h3>
+        </div>
+
+        <div id="detailPriority" class="status">
+          Priority
+        </div>
+      </div>
+
+      <p id="detailDescription">
+        Click one of the investment points on the map to see regional
+        investment details.
+      </p>
+
+      <div class="score-box">
+        <span>Investment Score</span>
+        <h2 id="detailScore">0/100</h2>
+
+        <div class="score-bar">
+          <div id="detailScoreBar" class="score-fill"></div>
+        </div>
+      </div>
+
+      <div class="detail-grid">
+        <div class="detail-card">
+          <span>Main Commodity</span>
+          <h4 id="detailCommodity">-</h4>
+        </div>
+
+        <div class="detail-card">
+          <span>Investment Value</span>
+          <h4 id="detailValue">-</h4>
+        </div>
+
+        <div class="detail-card">
+          <span>Export Market</span>
+          <h4 id="detailExport">-</h4>
+        </div>
+
+        <div class="detail-card">
+          <span>ROI Estimate</span>
+          <h4 id="detailROI">-</h4>
+        </div>
+      </div>
+    </section>
+  </aside>
+
+  <!-- HIDE / SHOW RIGHT PANEL BUTTON -->
+  <button id="sidebarToggle" class="sidebar-toggle" type="button">
+    Hide Panel
+  </button>
+
+  <!-- RIGHT PANEL -->
+  <aside class="right-panel">
+    <!-- SEARCH -->
+    <section class="search-box-wrapper">
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Search region, commodity, export market..."
+      />
+    </section>
+
+    <!-- BASIC FILTER -->
+    <section class="filter-row">
+      <button class="filter-btn active-filter" type="button">All</button>
+      <button class="filter-btn" type="button">Tuna</button>
+      <button class="filter-btn" type="button">Seaweed</button>
+      <button class="filter-btn" type="button">Shrimp</button>
+      <button class="filter-btn" type="button">Crab</button>
+      <button class="filter-btn" type="button">Tourism</button>
+      <button class="filter-btn" type="button">Logistics</button>
+    </section>
+
+    <!-- ADVANCED FILTER -->
+    <section class="advanced-filter-row">
+      <button
+        class="advanced-filter-btn"
+        data-advanced="high-roi"
+        type="button"
+      >
+        High ROI &gt; 20%
+      </button>
+
+      <button
+        class="advanced-filter-btn"
+        data-advanced="value-billion"
+        type="button"
+      >
+        Value ≥ USD 1B
+      </button>
+
+      <button
+        class="advanced-filter-btn"
+        data-advanced="export-japan"
+        type="button"
+      >
+        Export to Japan
+      </button>
+
+      <button
+        class="advanced-filter-btn"
+        data-advanced="high-score"
+        type="button"
+      >
+        High Score
+      </button>
+    </section>
+
+    <!-- MAP TOOLS -->
+    <section class="map-tools">
+      <button id="darkMapBtn" class="tool-btn active-tool" type="button">
+        Dark Map
+      </button>
+
+      <button id="satelliteMapBtn" class="tool-btn" type="button">
+        Satellite
+      </button>
+
+      <button id="heatmapBtn" class="tool-btn" type="button">
+        Heatmap
+      </button>
+
+      <button id="resetMapBtn" class="tool-btn" type="button">
+        Reset
+      </button>
+
+      <button id="clearFilterBtn" class="tool-btn" type="button">
+        Clear Filter
+      </button>
+
+      <button id="printPdfBtn" class="tool-btn" type="button">
+        Print
+      </button>
+    </section>
+
+    <!-- RESULT INFO -->
+    <section class="result-info">
+      <span id="resultCount">Loading investment regions...</span>
+    </section>
+
+    <!-- ANALYTICS PANEL -->
+    <section class="analytics-panel">
+      <div class="analytics-header">
+        <h2>Investment Analytics</h2>
+        <span class="live-dot">● Live</span>
+      </div>
+
+      <div class="analytics-card">
+        <span>Total Investment Value</span>
+        <h3>USD 0B</h3>
+      </div>
+
+      <div class="analytics-card">
+        <span>Dominant Sector</span>
+        <h3>-</h3>
+      </div>
+
+      <div class="analytics-card">
+        <span>Average ROI</span>
+        <h3>0%</h3>
+      </div>
+
+      <div class="analytics-card">
+        <span>Highest Investment Score</span>
+        <h3>-</h3>
+      </div>
+
+      <div class="chart-wrapper">
+        <canvas id="investmentChart"></canvas>
+      </div>
+    </section>
+
+    <!-- RANKING PANEL -->
+    <section class="ranking-panel">
+      <div class="section-header">
+        <h3>Top Ranking</h3>
+        <span>By Score</span>
+      </div>
+
+      <div id="rankingList" class="ranking-list"></div>
+    </section>
+
+    <!-- REGION LIST -->
+    <section class="region-list-wrapper">
+      <div class="section-header">
+        <h3>Investment Regions</h3>
+        <span>Clickable List</span>
+      </div>
+
+      <div id="regionList" class="region-list"></div>
+    </section>
+
+    <!-- COMPARE PANEL -->
+    <section id="comparePanel" class="compare-panel">
+      <div class="section-header">
+        <h3>Compare Regions</h3>
+        <span>Investment Benchmark</span>
+      </div>
+
+      <div class="compare-select-grid">
+        <select id="compareA"></select>
+        <select id="compareB"></select>
+      </div>
+
+      <button id="compareBtn" class="compare-btn" type="button">
+        Compare Investment
+      </button>
+
+      <div id="compareResult" class="compare-result"></div>
+    </section>
+
+    <!-- INVESTOR PITCH -->
+    <section id="investorPitch" class="investor-pitch">
+      <div class="section-header">
+        <h3>Investor Access</h3>
+        <span>Priority Pitch</span>
+      </div>
+
+      <p id="pitchText">
+        Select Investor Access mode to see priority investment pitch.
+      </p>
+    </section>
+  </aside>
+
+  <!-- FLOATING DASHBOARD -->
+  <section class="floating-dashboard">
+    <div>
+      <span>Regions</span>
+      <h4 id="miniRegions">0</h4>
+    </div>
+
+    <div>
+      <span>Value</span>
+      <h4 id="miniValue">USD 0B</h4>
+    </div>
+
+    <div>
+      <span>Avg ROI</span>
+      <h4 id="miniROI">0%</h4>
+    </div>
+  </section>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Chart JS -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>
