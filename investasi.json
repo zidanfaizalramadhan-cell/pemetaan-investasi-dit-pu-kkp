@@ -103,5 +103,22 @@
     "cp_instansi": "Marine Investment Facilitation",
     "cp_email": "rikzanf@gmail.com",
     "cp_telepon": "+6285704004318"
+  },
+  {
+    "nama": "Tual, Maluku",
+    "provinsi": "Maluku",
+    "koordinat": [-5.626960122362983, 132.75263522404163],
+    "komoditas": "Integrated Fish Processing",
+    "potensi": "Integrated fish processing industry development supported by Tual Fishing Port, cold storage facilities, tuna processing, frozen fish, live grouper, fish protein hydrolysate, and ice block production.",
+    "nilai": "IDR 508.68 Billion",
+    "ekspor": "United States, China, Japan, Global Fisheries Market",
+    "roi": "15.19% - 97.17%",
+    "deskripsi": "Tual City is positioned as a strategic integrated fish processing hub in Eastern Indonesia. The project is located in Dusun Dumar, South Dullah Island, and supported by Pelabuhan Perikanan Nusantara Tual, 8.0 ha land area, cold storage facilities, capture fisheries fleet, tuna processing, HPI production, live grouper, and ice block production. The project supports sustainable fisheries development and export-oriented fishery processing.",
+    "kontak": {
+      "nama": "Rikzan",
+      "email": "rikzanf@gmail.com",
+      "telepon": "+6285704004318",
+      "bidang": "Marine Investment Facilitation"
+    }
   }
 ]
