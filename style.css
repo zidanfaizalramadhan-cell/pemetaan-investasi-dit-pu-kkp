@@ -961,171 +961,6 @@ body.right-panel-hidden .sidebar-toggle{
     border 0.25s ease;
 }
 
-/* Responsive */
-
-@media(max-width:900px){
-  body{
-    overflow:auto;
-  }
-
-  #map{
-    position:fixed;
-    height:100vh;
-  }
-
-  .map-overlay{
-    position:fixed;
-  }
-
-  .navbar{
-    position:relative;
-    width:95%;
-    height:auto;
-    margin:20px auto;
-    flex-direction:column;
-    gap:16px;
-    padding:20px;
-    left:auto;
-    right:auto;
-    top:auto;
-  }
-
-  .nav-right{
-    flex-wrap:wrap;
-    justify-content:center;
-  }
-
-  .left-panel,
-  .right-panel{
-    position:relative;
-    width:95%;
-    max-height:none;
-    top:auto;
-    left:auto;
-    right:auto;
-    margin:20px auto;
-  }
-
-  .right-panel.hide-right-panel{
-    display:none;
-    transform:none;
-    opacity:0;
-  }
-
-  .sidebar-toggle{
-    position:relative;
-    top:auto;
-    right:auto;
-    width:95%;
-    margin:10px auto;
-    display:block;
-  }
-
-  .sidebar-toggle.panel-hidden,
-  body.right-panel-hidden .sidebar-toggle{
-    right:auto;
-  }
-
-  .floating-dashboard{
-    position:relative;
-    left:auto;
-    bottom:auto;
-    transform:none;
-    width:95%;
-    margin:20px auto;
-    justify-content:center;
-    flex-wrap:wrap;
-  }
-
-  body.right-panel-hidden .floating-dashboard{
-    left:auto;
-    transform:none;
-  }
-}
-
-@media(max-width:768px){
-  .nav-left{
-    align-items:flex-start;
-  }
-
-  .nav-left h2{
-    font-size:15px;
-  }
-
-  .nav-left span{
-    font-size:11px;
-  }
-
-  .nav-right{
-    width:100%;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-  }
-
-  .nav-btn{
-    width:100%;
-    font-size:12px;
-    padding:10px 12px;
-  }
-
-  .left-panel h1{
-    font-size:30px;
-  }
-
-  .hero-buttons{
-    flex-direction:column;
-  }
-
-  .stats-grid,
-  .detail-grid,
-  .compare-select-grid,
-  .compare-row{
-    grid-template-columns:1fr;
-  }
-
-  .map-tools{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .floating-dashboard{
-    display:grid;
-    grid-template-columns:1fr;
-  }
-
-  .floating-dashboard div{
-    width:100%;
-  }
-}
-
-@media(max-width:480px){
-  .navbar,
-  .left-panel,
-  .right-panel,
-  .floating-dashboard,
-  .sidebar-toggle{
-    width:92%;
-  }
-
-  .left-panel h1{
-    font-size:26px;
-  }
-
-  .detail-panel,
-  .analytics-panel,
-  .ranking-panel,
-  .compare-panel,
-  .investor-pitch{
-    padding:18px;
-    border-radius:22px;
-  }
-
-  .filter-btn,
-  .advanced-filter-btn{
-    font-size:12px;
-    padding:8px 12px;
-  }
-}
-
 /* =====================================================
    FIX MAP FULL WIDTH WHEN RIGHT PANEL HIDDEN
 ===================================================== */
@@ -1645,4 +1480,15 @@ body.investor-access-mode .investor-pitch {
     line-height: 1.35 !important;
     margin-bottom: 8px !important;
   }
+}
+
+/* =====================================================
+   DETAIL TITLE FIX
+===================================================== */
+
+#detailTitle,
+.detail-top h3 {
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+  line-height: 1.15 !important;
 }
